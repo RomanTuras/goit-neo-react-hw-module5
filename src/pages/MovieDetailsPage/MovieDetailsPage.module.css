@@ -1,0 +1,19 @@
+.content {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.content .poster {
+  max-width: 300px;
+  border-radius: 6px;
+  height: fit-content;
+}
+
+.content .info {
+  margin-top: 30px;
+}
+
+.content .infoTitle {
+  margin-top: 20px;
+}

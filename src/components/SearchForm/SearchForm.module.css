@@ -1,0 +1,22 @@
+.formSearch .search {
+  height: 35px;
+  background-color: wheat;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid darkgray;
+  color: #272420;
+  padding: 0 8px;
+  margin-bottom: 30px;
+}
+
+.formSearch .search:active,
+.formSearch .search:focus {
+  outline: none;
+}
+
+.formSearch .submit {
+  height: 38px;
+  font-size: 18px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
