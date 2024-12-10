@@ -1,29 +1,21 @@
-import { useNavigate } from "react-router-dom";
-import css from './SearchForm.module.css';
+import { useState } from "react";
+import css from "./SearchForm.module.css";
 
-const SearchForm = () => {
-  const navigate = useNavigate();
+const SearchForm = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const { _, search } = form.elements;
-    const query = search.value.trim().toLowerCase();
-    if (query.length > 1) {
-      navigate("/movies?query=" + query, { replace: true });
-    }
-
-    form.reset();
+    onSearch(searchQuery);
   };
 
   return (
     <form onSubmit={handleSubmit} className={css.formSearch}>
       <input
         className={css.search}
-        name="search"
         type="text"
-        autoComplete="off"
-        autoFocus
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Search movies"
       />
       <button type="submit" className={css.submit}>

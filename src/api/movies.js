@@ -1,8 +1,5 @@
 import axios from "axios";
 
-// const url = "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1";
-
-// const KEY = "cd950273ff3695bdce219fa6b4741bde";
 const API_READ_ACCESS_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZDk1MDI3M2ZmMzY5NWJkY2UyMTlmYTZiNDc0MWJkZSIsIm5iZiI6MTczMzY1NDQ4OS4wNzksInN1YiI6IjY3NTU3N2Q5MjM3ODQ5NzY3NTc1NjE4MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.z1zuqOrCEvxQI7cq39NIfe4PolLReH8hnc95zaxg49M";
 
@@ -47,5 +44,3 @@ export const searchMovies = async (query) => {
 };
 
 export const getMoviePosterPath = (img) => img ? pathToImg + img : pathToDefaultImg;
-// export const getMoviePosterPath = (img) => pathToImg + img;
-// export const getDefaultMoviePosterPath = () => pathToDefaultImg;

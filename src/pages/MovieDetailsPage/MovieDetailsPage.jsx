@@ -1,5 +1,5 @@
 import { useParams, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Suspense } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { getMovieDetails, getMoviePosterPath } from "../../api/movies.js";
@@ -9,15 +9,13 @@ import css from "./MovieDetailsPage.module.css";
 const MovieDetailsPage = () => {
   const [movieDetail, setMovieDetail] = useState([]);
   const location = useLocation();
-  const backLinkHref = location.state ?? "/movies";
+  const backLinkHref = useRef(location.state ?? "/movies");
   const { movieId } = useParams();
 
   useEffect(() => {
     const fetchMovieDetails = async (id) => {
       try {
         const { data } = await getMovieDetails(id);
-        // console.log('details');
-        // console.dir(data.genres);
         setMovieDetail(data);
       } catch {
         console.log("error");
@@ -32,7 +30,6 @@ const MovieDetailsPage = () => {
     <div>
       <BackLink to={backLinkHref}>Go back</BackLink>
       <div className={css.content}>
-        {/* <div>{movieDetail.poster_path ? <img src={getMoviePosterPath(movieDetail.poster_path)} alt="" /> : <img src={getDefaultMoviePosterPath()} alt="" />} */}
         <img className={css.poster} src={getMoviePosterPath(movieDetail.poster_path)} alt="" />
         <div>
           <h3>{movieDetail.title}</h3>

@@ -6,7 +6,7 @@ import { searchMovies } from "../../api/movies.js";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
 
   useEffect(() => {
@@ -23,9 +23,13 @@ const MoviesPage = () => {
     }
   }, [query]);
 
+  const handleSearch = (searchQuery) => {
+    setSearchParams({ query: searchQuery });
+  };
+
   return (
     <>
-      <SearchForm />
+      <SearchForm onSearch={handleSearch} />
 
       <MovieList movies={movies} />
     </>

@@ -14,6 +14,7 @@ Searching movies using `axios`, navigate by page
 `useLocation`
 `location.state`
 `useParams`
+`useRef`
 `axios`
 `state`
 `useEffect`
